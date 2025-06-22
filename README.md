@@ -1,6 +1,5 @@
 #This is my case study for Question 1. This is the first time I've utilized any of these tools. Appreciate your patience.
 
-# Payrails Product Assessment
 Summary of Steps...
 1. **Request Access Token**  
    Using client ID and API key to obtain a mock access token from Mockoon.
