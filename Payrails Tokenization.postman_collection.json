@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "2edc0443-4ad4-468c-a96d-04ce3724cd97",
+		"name": "Payrails Tokenization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46096192",
+		"_collection_link": "https://dinaaly-1.postman.co/workspace/Team-Workspace~551b4f00-1498-46ea-89de-5d78e6a94841/collection/46096192-2edc0443-4ad4-468c-a96d-04ce3724cd97?action=share&source=collection_link&creator=46096192"
+	},
+	"item": [
+		{
+			"name": "Access Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "PV120FvhHL4CQUcjn9G0tDBpsKe2xkwsTZ56L36jgpTnKbIgkN5pxyaRlYg0wtuFoW1cwodfBuccGcGQBwhQQ6i9D6LcuQnwqZAYmiH4Waou6UXzmfdBvsMaDff4e4VjppAmKUdpfBE481eIu9rhazc12H1UKqU5bqmKKxfbq9Yoe0owQjukvlckHmuVoGuyK4OZEehMnHHLGPP5v3ag6BhKb1PUCKOFXuOP67B5SVCiFAovkmL7nRZ4db6EtUIH",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client_secret\": \"1Tdkq5OKtz0BnA3VqCqvnvBJxZdTTxvA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/auth/token/1Tdkq5OKtz0BnA3VqCqvnvBJxZdTTxvA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"auth",
+						"token",
+						"1Tdkq5OKtz0BnA3VqCqvnvBJxZdTTxvA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Initialize Client",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mock-access-token-12345",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"tokenization\",\r\n  \"holderReference\": \"customer123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/client/sdk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"client",
+						"sdk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "PV120FvhHL4CQUcjn9G0tDBpsKe2xkwsTZ56L36jgpTnKbIgkN5pxyaRlYg0wtuFoW1cwodfBuccGcGQBwhQQ6i9D6LcuQnwqZAYmiH4Waou6UXzmfdBvsMaDff4e4VjppAmKUdpfBE481eIu9rhazc12H1UKqU5bqmKKxfbq9Yoe0owQjukvlckHmuVoGuyK4OZEehMnHHLGPP5v3ag6BhKb1PUCKOFXuOP67B5SVCiFAovkmL7nRZ4db6EtUIH",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer mock-access-token-12345",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"holderReference\": \"customer123\",\r\n  \"encryptedInstrumentDetails\": \"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2Q0JDLUhTMjU2In0.oq1SVGVmK0Z6PHKtrZ8wLlnF-0YkTXW1LxtrYgLbR_FDsH1LsH7cLOqZaSK6hSH3FY-M6DAzV34ep2QvLd9JxWzrhTgskHTG1qRUmKZZoZqqBHiQANWZu3m6BqgZ2YjoRUzq2Noqekpnn6_2R8E4KMPRu9LKgBLMRnZ_j3XY0Xzthtrw3OVrwhG8cH9SxzBgT9OUEThTFkJx6NdzHz7AFMRorqWleJTb8p4upO5F0IzODsPuKOL02SWHMZk8n4gfUwhC4x8gm8ozEF09EiPMRXdjSnW_wJK7wESwnHf12Eqbl9mUSztVxF41B9Pp2K6cT9nOCTeHVWZZqVRWknEv2-g.nwhIvXYBeyRzNGKM5N0tFQ.S0RGf4bBPYYT_JTcZ1M2J0EO7J1tZqZmvN0l0ABXNSO5Ig5hJpPhA1YExRrLUfHQLASiWltEzEoOa6YRx30L6R3qucA5cqxPFkFwsjWvuF_MZZQgyGCAXZlvdZdKb6ZQ7M0I7K_vvKwN_R0uyFHy3ZKVcCLyFSTTxO3mN_M8uAw.M_4WYCCoO3dz3U0LtFuUKw\",\r\n  \"futureUsage\": \"CardOnFile\",\r\n  \"storeInstrument\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/instruments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"instruments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
